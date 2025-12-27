@@ -12,7 +12,7 @@ Most people just run a model and hope for the best. I spent most of my time on t
 
 ### 1. Dealing with the "Noise" 🧹
 * **Imputation:** The dataset had a lot of missing values in pH and Sulfate. Instead of deleting those rows, I used **Mean Imputation** to keep the dataset size large enough for the model to learn.
-* **Outlier Cleanup:** I used the **Percentile Method** to chop off the top and bottom 1% of the pH and Sulfate data. Why? Because environmental sensors often give "garbage" readings that can confuse a model.
+* **Outlier Cleanup:** I implemented IQR (Interquartile Range) Outlier Filtering on key sensor inputs like pH and Sulfate. Unlike a simple percentile chop, the IQR method identifies outliers based on the statistical spread of the data
 
 ### 2. Picking the Right Features 🎯
 I didn't use all the columns. I ran a **Feature Importance** check and found that 5 things really matter:
